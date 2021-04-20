@@ -3,6 +3,7 @@ package com.myapplicationdev.android.tw_listview;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,6 +16,8 @@ public class SecondActivity extends AppCompatActivity {
     ArrayList<Module> alYear1;
     ArrayList<Module> alYear2;
     ArrayList<Module> alYear3;
+    ArrayAdapter aa;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,22 +31,28 @@ public class SecondActivity extends AppCompatActivity {
         lv = (ListView) this.findViewById(R.id.lvModules);
         tvYear = (TextView) findViewById(R.id.tvYear);
 
-        alYear1.add(new Module("C123","Tree"));
-        alYear1.add(new Module("C321","Computer"));
-        alYear1.add(new Module("C231","Tree"));
+        alYear1.add(new Module("C123",true));
+        alYear1.add(new Module("C321",false));
+        alYear1.add(new Module("C231",true));
 
-        alYear2.add(new Module("C208","Computer"));
-        alYear2.add(new Module("C200","Tree"));
-        alYear2.add(new Module("C346","Computer"));
+        alYear2.add(new Module("C208",true));
+        alYear2.add(new Module("C200",false));
+        alYear2.add(new Module("C346",true));
 
-        alYear3.add(new Module("C098","Computer"));
-        alYear3.add(new Module("C890","Tree"));
-        alYear3.add(new Module("C980","Computer"));
+        alYear3.add(new Module("C098",true));
+        alYear3.add(new Module("C890",false));
+        alYear3.add(new Module("C980",true));
 
         Intent i = getIntent();
         String year = i.getStringExtra("year");
         tvYear.setText(year);
 
+        aa = new ModuleAdapter(this, R.layout.row, alYear1);
+        aa = new ModuleAdapter(this, R.layout.row, alYear2);
+        aa = new ModuleAdapter(this, R.layout.row, alYear3);
+
+
+        lv.setAdapter(aa);
 
 
     }
