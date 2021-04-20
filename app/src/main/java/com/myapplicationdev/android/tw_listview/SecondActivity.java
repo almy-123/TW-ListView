@@ -47,9 +47,14 @@ public class SecondActivity extends AppCompatActivity {
         String year = i.getStringExtra("year");
         tvYear.setText(year);
 
-        aa = new ModuleAdapter(this, R.layout.row, alYear1);
-        aa = new ModuleAdapter(this, R.layout.row, alYear2);
-        aa = new ModuleAdapter(this, R.layout.row, alYear3);
+        if (year.equals("Year 1")){
+            aa = new ModuleAdapter(this, R.layout.row, alYear1);
+        } else if(year.equals("Year 2")){
+            aa = new ModuleAdapter(this, R.layout.row, alYear2);
+        } else{
+            aa = new ModuleAdapter(this, R.layout.row, alYear3);
+        }
+
 
 
         lv.setAdapter(aa);
