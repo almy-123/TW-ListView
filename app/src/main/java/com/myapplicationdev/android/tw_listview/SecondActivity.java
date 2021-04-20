@@ -28,9 +28,17 @@ public class SecondActivity extends AppCompatActivity {
         lv = (ListView) this.findViewById(R.id.lvModules);
         tvYear = (TextView) findViewById(R.id.tvYear);
 
+        alYear1.add(new Module("C123","Tree"));
+        alYear1.add(new Module("C321","Computer"));
+        alYear1.add(new Module("C231","Tree"));
+
         alYear2.add(new Module("C208","Computer"));
         alYear2.add(new Module("C200","Tree"));
         alYear2.add(new Module("C346","Computer"));
+
+        alYear3.add(new Module("C098","Computer"));
+        alYear3.add(new Module("C890","Tree"));
+        alYear3.add(new Module("C980","Computer"));
 
         Intent i = getIntent();
         String year = i.getStringExtra("year");
