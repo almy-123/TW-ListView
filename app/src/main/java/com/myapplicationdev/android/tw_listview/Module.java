@@ -13,4 +13,5 @@ public class Module {
     public String getIcon() {
         return icon;
     }
+
 }
